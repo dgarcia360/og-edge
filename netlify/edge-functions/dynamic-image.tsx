@@ -4,7 +4,7 @@ import { ImageResponse } from "../../mod.ts";
 
 export default function handler(req: Request) {
   const { searchParams } = new URL(req.url);
-  const username = searchParams.get("username");
+  const title = searchParams.get("title");
 
   return new ImageResponse(
     (
