@@ -4,9 +4,7 @@ import { ImageResponse } from "../../mod.ts";
 
 export default function handler(req: Request) {
   const { searchParams } = new URL(req.url);
-  const title = searchParams.get("title") || "Default Title";
-
-  console.log("Title:", title);
+  const title = searchParams.get("title");
 
   return new ImageResponse(
     <div
@@ -19,22 +17,9 @@ export default function handler(req: Request) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        position: "relative",
       }}
     >
-      <div style={{ padding: "40px" }}>
-        <h1>{title}</h1>
-        <div
-          style={{
-            fontSize: "30px",
-            position: "absolute",
-            bottom: "40px",
-            right: "40px",
-          }}
-        >
-          techdocs.studio
-        </div>
-      </div>
+      <h1>{title}</h1>
     </div>,
     {
       width: 1200,
